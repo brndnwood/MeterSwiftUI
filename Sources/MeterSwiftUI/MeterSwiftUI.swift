@@ -20,7 +20,10 @@ public struct MeterSwiftUI : View {
 
     public init(lineWidth: CGFloat, meterValue : CGFloat) {
         self.lineWidth = lineWidth
-        self.meterValue = meterValue
+        
+        withAnimation {
+            self.meterValue = meterValue
+        }
     }
     
     public var body: some View {
