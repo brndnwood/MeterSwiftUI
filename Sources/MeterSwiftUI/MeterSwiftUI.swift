@@ -3,7 +3,7 @@ import SwiftUI
 @available(iOS 15, *)
 public struct MeterSwiftUI : View {
     
-    @State public var meterValue  : CGFloat = 0.0
+    @State private var meterValue  : CGFloat = 0.0
 
     private let frameSize : CGFloat = 300
     private var lineWidth : CGFloat = 50
@@ -18,8 +18,9 @@ public struct MeterSwiftUI : View {
         }
     }
 
-    public init(lineWidth: CGFloat) {
+    public init(lineWidth: CGFloat, meterValue : CGFloat) {
         self.lineWidth = lineWidth
+        self.meterValue = meterValue
     }
     
     public var body: some View {
@@ -52,6 +53,6 @@ public struct MeterSwiftUI : View {
 
 struct MeterSwiftUI_Previews: PreviewProvider {
     static var previews: some View {
-        MeterSwiftUI(lineWidth: 50)
+        MeterSwiftUI(lineWidth: 50, meterValue: 0.25)
     }
 }
