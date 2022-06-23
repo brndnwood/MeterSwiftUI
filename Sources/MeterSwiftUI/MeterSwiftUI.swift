@@ -3,7 +3,7 @@ import SwiftUI
 @available(iOS 15, *)
 public struct MeterSwiftUI : View {
     
-    @State private var meterValue : CGFloat = 0
+    private var meterValue : CGFloat = 0
 
     private let frameSize : CGFloat = 300
     private var lineWidth : CGFloat = 50
@@ -46,11 +46,7 @@ public struct MeterSwiftUI : View {
                 .rotationEffect(Angle(degrees: 180))
         }
         .padding(.bottom, -60)
-        .onChange(of: meterValue) { value in
-            withAnimation {
-                meterValue = value
-            }
-        }
+
         
         
     }
