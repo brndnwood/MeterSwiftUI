@@ -1,3 +1,3 @@
 # MeterSwiftUI
 
-A description of this package.
+A meter gauge view for SwiftUI.
