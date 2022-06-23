@@ -10,8 +10,9 @@ import MeterSwiftUI
 
 Then place in your code:
 
+<code>
 MeterSwiftUI(lineWidth: <cgfloat>, meterValue <cgfloat)
-
+</code>
 
 Parameters:
 

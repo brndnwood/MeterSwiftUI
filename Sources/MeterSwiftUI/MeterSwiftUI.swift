@@ -68,6 +68,7 @@ public struct MeterSwiftUI : View {
             Text(setMeterText() + "%")
                 .font(.system(size: 55, design: .rounded)).bold()
                 .padding(.top)
+                .animation(.easeIn, value: setMeterText())
             
             // meter value
             Circle()
