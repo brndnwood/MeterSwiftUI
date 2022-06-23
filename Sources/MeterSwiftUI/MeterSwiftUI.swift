@@ -3,27 +3,27 @@ import SwiftUI
 @available(iOS 15, *)
 public struct MeterSwiftUI : View {
     
-    var meterValue : CGFloat = 0
+    @State private var meterValue : CGFloat = 0
 
     private let frameSize : CGFloat = 300
     private var lineWidth : CGFloat = 50
     
     private let colors  = [Color.blue, Color.red]
     
-//    func checkMeterValue () {
-//        if (meterValue >= 0.5) {
-//            meterValue = 0.5
-//        } else {
-//            meterValue += 0.1
-//        }
-//    }
+    
+    mutating func checkMeterValue () {
+        if (meterValue >= 0.5) {
+            self.meterValue = 0.5
+        } else {
+            self.meterValue += 0.1
+        }
+    }
+    
 
     public init(lineWidth: CGFloat, meterValue : CGFloat) {
         self.lineWidth = lineWidth
         
-        withAnimation {
-            self.meterValue = meterValue
-        }
+        self.meterValue = meterValue
     }
     
     public var body: some View {
@@ -44,9 +44,11 @@ public struct MeterSwiftUI : View {
                 .stroke(AngularGradient(colors: colors, center: .center), lineWidth: lineWidth )
                 .frame(width: frameSize, height: frameSize)
                 .rotationEffect(Angle(degrees: 180))
-        }.padding(.bottom, -60)
-        
-
+        }
+        .padding(.bottom, -60)
+        .onChange(of: meterValue) { value in
+            print ("test - hello!")
+        }
         
         
     }
