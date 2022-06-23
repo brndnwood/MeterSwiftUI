@@ -14,8 +14,6 @@ public struct MeterSwiftUI : View {
     mutating func checkMeterValue () {
         if (meterValue >= 0.5) {
             self.meterValue = 0.5
-        } else {
-            self.meterValue += 0.1
         }
     }
     
@@ -58,6 +56,6 @@ public struct MeterSwiftUI : View {
 
 struct MeterSwiftUI_Previews: PreviewProvider {
     static var previews: some View {
-        MeterSwiftUI(lineWidth: 50, meterValue: 0.25)
+        MeterSwiftUI(lineWidth: 50, meterValue: 0.1)
     }
 }
