@@ -5,7 +5,7 @@ public struct MeterSwiftUI : View {
     
     private var meterValue : CGFloat = 0
 
-    private let frameSize : CGFloat = 300
+    private let frameSize : CGFloat = 250
     private var lineWidth : CGFloat = 50
     
     private let colors  = [Color.blue, Color.red]
@@ -36,16 +36,32 @@ public struct MeterSwiftUI : View {
                 .stroke(.black.opacity(0.25), lineWidth: lineWidth )
                 .frame(width: frameSize, height: frameSize)
                 .rotationEffect(Angle(degrees: 180))
-        
-        
+                .padding(.top, 60)
+                .padding(.leading, 30)
+                .padding(.trailing, 30)
+
+            
+            
             // meter value
             Circle()
                 .trim(from: 0, to: meterValue)
                 .stroke(AngularGradient(colors: colors, center: .center), lineWidth: lineWidth )
                 .frame(width: frameSize, height: frameSize)
                 .rotationEffect(Angle(degrees: 180))
+                .padding(.top, 60)
+//                .padding(.leading, 30)
+//                .padding(.trailing, 30)
+
+
+
         }
-        .padding(.bottom, -60)
+                .padding(.bottom, -120)
+                .padding(.top, -30)
+
+        .background {
+            Color.green
+        }
+        
 
         
         
