@@ -6,7 +6,7 @@ public struct MeterSwiftUI : View {
     @State public var meterValue  : CGFloat = 0.0
 
     private let frameSize : CGFloat = 300
-    public let lineWidth : CGFloat = 50
+    public var lineWidth : CGFloat = 50
     
     private let colors  = [Color.blue, Color.red]
     
@@ -19,6 +19,9 @@ public struct MeterSwiftUI : View {
     }
 
     public init() {
+        
+//        self.lineWidth = 10
+        
     }
     
     public var body: some View {
