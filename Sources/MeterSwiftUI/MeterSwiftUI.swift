@@ -12,7 +12,8 @@ public struct MeterSwiftUI : View {
     
     private let colors  = [Color.blue, Color.red]
     
-    private var meterTextValue : String = "0"
+    @State private var meterTextValue : String = "0"
+    
     
     
     // don't let value go past background
@@ -21,6 +22,8 @@ public struct MeterSwiftUI : View {
             self.meterValue = 1
         }
     }
+    
+    
     
     func convertMeterValue () -> CGFloat {
         // Meter value comes in as a percentage of the meter completed.
@@ -32,10 +35,12 @@ public struct MeterSwiftUI : View {
         return percent
     }
     
-    func setMeterText () -> String{
-        
-        return String(format: "%.0f", meterValue * 100)
+//    func setMeterText () -> String{
+    func setMeterText () {
 
+//        self.meterTextValue = String(format: "%.0f", self.meterValue * 100)
+//        return String(format: "%.0f", meterValue * 100)
+        meterTextValue = "8"
     }
     
 
@@ -49,6 +54,7 @@ public struct MeterSwiftUI : View {
         
         self.meterValue = meterValue
         checkMeterValue()
+        setMeterText()
     }
     
     public var body: some View {
@@ -65,10 +71,14 @@ public struct MeterSwiftUI : View {
                 .padding(.leading, 30)
                 .padding(.trailing, 30)
 
-            Text(setMeterText() + "%")
+//            Text(setMeterText() + "%")
+            Text(String(format: "%.0f", meterValue * 100) + "%")
+
+//            Text(meterTextValue + "%")
                 .font(.system(size: 55, design: .rounded)).bold()
                 .padding(.top)
-                .animation(.easeIn, value: setMeterText())
+                .animation(.none, value: meterTextValue)
+                
             
             // meter value
             Circle()
@@ -77,14 +87,10 @@ public struct MeterSwiftUI : View {
                 .frame(width: frameSize, height: frameSize)
                 .rotationEffect(Angle(degrees: 180))
                 .padding(.top, 60)
-//                .padding(.leading, 30)
-//                .padding(.trailing, 30)
-
-
 
         }
-                .padding(.bottom, -120)
-                .padding(.top, -30)
+        .padding(.bottom, -120)
+        .padding(.top, -30)
 
         .background {
 //            Color.green
@@ -100,6 +106,6 @@ public struct MeterSwiftUI : View {
 
 struct MeterSwiftUI_Previews: PreviewProvider {
     static var previews: some View {
-        MeterSwiftUI(lineWidth: 50, meterValue: 1)
+        MeterSwiftUI(lineWidth: 50, meterValue: 0.75)
     }
 }
