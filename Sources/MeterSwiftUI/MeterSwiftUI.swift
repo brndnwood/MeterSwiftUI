@@ -3,7 +3,7 @@ import SwiftUI
 @available(iOS 15, *)
 public struct MeterSwiftUI : View {
     
-    private var meterValue : CGFloat = 0
+    @State private var meterValue : CGFloat = 0
 
     private let frameSize : CGFloat = 300
     private var lineWidth : CGFloat = 50
@@ -47,7 +47,9 @@ public struct MeterSwiftUI : View {
         }
         .padding(.bottom, -60)
         .onChange(of: meterValue) { value in
-            print ("test - hello!")
+            withAnimation {
+                meterValue = value
+            }
         }
         
         
