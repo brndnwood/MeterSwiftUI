@@ -17,8 +17,9 @@ public struct MeterSwiftUI : View {
     
     
     // don't let value go past background
-    mutating func checkMeterValue () {
-        if (convertMeterValue() >= 1) {
+    mutating func limitMeterValue () {
+        
+        if (meterValue >= 1) {
             self.meterValue = 1
         }
     }
@@ -35,13 +36,7 @@ public struct MeterSwiftUI : View {
         return percent
     }
     
-//    func setMeterText () -> String{
-    func setMeterText () {
 
-//        self.meterTextValue = String(format: "%.0f", self.meterValue * 100)
-//        return String(format: "%.0f", meterValue * 100)
-        meterTextValue = "8"
-    }
     
 
     public init(lineWidth: CGFloat, meterValue : CGFloat) {
@@ -53,8 +48,7 @@ public struct MeterSwiftUI : View {
         }
         
         self.meterValue = meterValue
-        checkMeterValue()
-        setMeterText()
+        limitMeterValue()
     }
     
     public var body: some View {
@@ -71,10 +65,8 @@ public struct MeterSwiftUI : View {
                 .padding(.leading, 30)
                 .padding(.trailing, 30)
 
-//            Text(setMeterText() + "%")
+            
             Text(String(format: "%.0f", meterValue * 100) + "%")
-
-//            Text(meterTextValue + "%")
                 .font(.system(size: 55, design: .rounded)).bold()
                 .padding(.top)
                 .animation(.none, value: meterValue)
@@ -106,6 +98,6 @@ public struct MeterSwiftUI : View {
 
 struct MeterSwiftUI_Previews: PreviewProvider {
     static var previews: some View {
-        MeterSwiftUI(lineWidth: 50, meterValue: 0.75)
+        MeterSwiftUI(lineWidth: 50, meterValue: 0.5)
     }
 }
