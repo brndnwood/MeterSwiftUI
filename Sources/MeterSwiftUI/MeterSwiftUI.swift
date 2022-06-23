@@ -3,20 +3,20 @@ import SwiftUI
 @available(iOS 15, *)
 public struct MeterSwiftUI : View {
     
-    @State private var meterValue  : CGFloat = 0.0
+    var meterValue : CGFloat = 0
 
     private let frameSize : CGFloat = 300
     private var lineWidth : CGFloat = 50
     
     private let colors  = [Color.blue, Color.red]
     
-    func checkMeterValue () {
-        if (meterValue >= 0.5) {
-            meterValue = 0.5
-        } else {
-            meterValue += 0.1
-        }
-    }
+//    func checkMeterValue () {
+//        if (meterValue >= 0.5) {
+//            meterValue = 0.5
+//        } else {
+//            meterValue += 0.1
+//        }
+//    }
 
     public init(lineWidth: CGFloat, meterValue : CGFloat) {
         self.lineWidth = lineWidth
