@@ -77,7 +77,7 @@ public struct MeterSwiftUI : View {
 //            Text(meterTextValue + "%")
                 .font(.system(size: 55, design: .rounded)).bold()
                 .padding(.top)
-                .animation(.none, value: meterTextValue)
+                .animation(.none, value: meterValue)
                 
             
             // meter value
