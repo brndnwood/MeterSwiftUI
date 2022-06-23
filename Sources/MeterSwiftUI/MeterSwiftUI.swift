@@ -24,6 +24,8 @@ public struct MeterSwiftUI : View {
         self.lineWidth = lineWidth
         
         self.meterValue = meterValue
+        
+        checkMeterValue()
     }
     
     public var body: some View {
